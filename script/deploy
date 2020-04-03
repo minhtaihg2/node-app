@@ -1,6 +1,6 @@
 #!/bin/sh
 cd /home/ubuntu/node
-git pull
+git pull origin master
 npm install
 pm2 restart all
 exit
