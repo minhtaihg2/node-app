@@ -1,0 +1,6 @@
+#!/bin/sh
+cd /home/ubuntu/node
+git pull
+npm install
+pm2 restart all
+exit
