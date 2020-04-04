@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
  res.send('hello world');
 });
 app.get('/version', function (req, res) {
- res.send('v0.0.3');
+ res.send('v0.0.1');
 });
 //listen to port 3000 by default
 app.listen(process.env.PORT || 3000);
