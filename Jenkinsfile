@@ -22,6 +22,8 @@ pipeline {
        stage('Deploy') {
            steps {
                 sh 'script/deploy'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh 'script/kill'
            }
        }
    } 
