@@ -14,11 +14,9 @@ pipeline {
       stage('Deploy') {
         steps {
           sh 'date'
+          sh 'pwd'
           sh 'script/deploy_v2.sh'
         }
-        steps {
-          sh 'echo pwd'
-        } 
      } 
    }        
 }           
