@@ -19,6 +19,14 @@ pipeline {
           input message: 'finish process...'
         }
      } 
+   }
+   post {
+     always {
+       sh 'this is always'
+     }
+     success {
+       sh 'this is sucess'
+     }
    }        
 }           
             
