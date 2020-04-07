@@ -12,6 +12,9 @@ pipeline {
         } 
      } 
       stage('Deploy') {
+        when {
+          branch 'master'
+        }
         steps {
           sh 'date'
           sh 'pwd'
