@@ -10,6 +10,13 @@ pipeline {
         steps {
           sh 'script/test.sh'
         } 
-     }
-   }
-}
+     } 
+      stage('Deploy') {
+        steps {
+          sh 'script/deploy_v2.sh'
+        } 
+     } 
+   }        
+}           
+            
+            
