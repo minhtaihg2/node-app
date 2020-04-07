@@ -22,10 +22,10 @@ pipeline {
    }
    post {
      always {
-       sh 'this is always'
+       echo 'this is always'
      }
      success {
-       sh 'this is sucess'
+       echo 'this is sucess'
      }
    }        
 }           
