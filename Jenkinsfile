@@ -16,6 +16,7 @@ pipeline {
           sh 'date'
           sh 'pwd'
           sh 'script/deploy_v2.sh'
+          input message: 'finish process...'
         }
      } 
    }        
