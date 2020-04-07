@@ -22,6 +22,7 @@ pipeline {
        stage('Deploy') {
            steps {
                 sh 'script/deploy_v2.sh'
+                telegramSend 'App deployed.'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh 'script/kill.sh'
            }
