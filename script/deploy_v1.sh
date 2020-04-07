@@ -1,6 +1,6 @@
 #!/bin/sh
-cd /home/ubuntu/Github/node-app
 git pull origin master
 npm install
-pm2 restart all
+pm2 stop index.js
+pm2 start index.js
 exit
