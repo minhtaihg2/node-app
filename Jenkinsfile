@@ -10,6 +10,9 @@ pipeline {
      stage('Build') {
         steps {
           echo "Environment: $AWS_ECR"
+          script {
+            AWS_ECR = 'https://osam.io/aws/ecr'
+          }
           sh 'npm install'
         }    
      }
@@ -19,11 +22,9 @@ pipeline {
         } 
      } 
       stage('Deploy') {
-        when {
-          branch 'origin/master'
-        }
         steps {
-          echo "Env: ${params.ENV}"
+          echo "Parameter: ${params.ENV}"
+          echo "Environment: $AWS_ECR"
           sh 'date'
           sh 'pwd'
           sh 'script/deploy_v2.sh'
