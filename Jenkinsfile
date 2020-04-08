@@ -15,6 +15,9 @@ pipeline {
         } 
      } 
       stage('Deploy') {
+        when {
+          branch 'master'
+        }
         steps {
           echo "Env: ${params.ENV}"
           sh 'date'
