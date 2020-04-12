@@ -1,5 +1,5 @@
 pipeline {
-#  agent any
+//   agent any
   agent {
     docker {
       image 'node:8.12.0'
