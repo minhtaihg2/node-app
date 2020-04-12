@@ -29,6 +29,7 @@ pipeline {
           sh 'pwd'
           sh 'script/deploy_v2.sh'
           input message: 'finish process..'
+          sh 'script/kill.sh'
         }
      } 
    }
