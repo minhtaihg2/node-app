@@ -11,7 +11,6 @@ pipeline {
   }
   environment {
     AWS_ECR = 'http://aws.amazon.com/ecr'
-    HOME = '.'
   }
   stages {
      stage('Build') {
