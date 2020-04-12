@@ -1,5 +1,11 @@
 pipeline {
-  agent any
+#  agent any
+  agent {
+    docker {
+      image 'node:8.12.0'
+      args '-p 3000:3000'
+    }
+  }
   parameters {
     string('name': 'ENV', defaultValue: 'production')
   }
