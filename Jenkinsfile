@@ -1,18 +1,16 @@
 pipeline {
   agent any
-  parameters { 
-    choice(name: 'CHOICES', choices: ['staging', 'dev', 'production'], description: 'Please select branch to build?') 
-  }
   environment {
     AWS_ECR = 'http://aws.amazon.com/ecr'
+    BRANCH = 'dev'
   }
   stages {
      stage('Build') {
         steps {
           echo "Environment: $AWS_ECR"
-          input message: 'Please choose the branch to build ', ok: 'Confirm!', parameters: [choice(name: 'BRANCH_NAME', choices: ['staging', 'dev', 'production'], description: 'Branch to build?')]
           script {
             AWS_ECR = 'https://osam.io/aws/ecr'
+            BRANCH = input message: 'Choose the branch to build ', ok: 'Done!', parameters: [choice(name: 'BRANCH_NAME', choices: ['staging', 'dev', 'production'], description: 'Branch to build?')]
           }
           sh 'npm install'
         }    
@@ -24,8 +22,8 @@ pipeline {
      } 
       stage('Deploy') {
         steps {
-          echo "Parameter: ${params.ENV}"
           echo "Environment: $AWS_ECR"
+          echo "Branch: $BRANCH"
           sh 'date'
           sh 'pwd'
           sh 'script/deploy_v2.sh'
