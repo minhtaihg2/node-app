@@ -1,5 +1,5 @@
 pipeline {
-  agent {label : 'staging'}
+  agent {label 'staging'}
   environment {
     AWS_ECR = 'http://aws.amazon.com/ecr'
     BRANCH = 'dev'
