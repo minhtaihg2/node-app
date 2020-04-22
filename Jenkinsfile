@@ -9,7 +9,7 @@ pipeline {
         steps {
           echo "Environment: $AWS_ECR"
           script {
-            AWS_ECR = 'https://osam.io/aws/ecr'
+            AWS_ECR = 'https://aws.amazon.com/aws/ecr'
             BRANCH = input message: 'Choose the branch to build ', ok: 'Done!', parameters: [choice(name: 'BRANCH_NAME', choices: ['staging', 'dev', 'production'], description: 'Branch to build?')]
           }
           sh 'npm install'
